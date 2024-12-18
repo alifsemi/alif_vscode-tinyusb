@@ -8,15 +8,19 @@ project:
         - file: msc_disk.c
 
   layers:
-    - layer: ../tinyusb_alif/tinyusb_alif.clayer.yaml
+    - layer: ../tinyusb_alif/tinyusb_alif.clayer.yml
 
+    - layer: ../device/ensemble/alif-ensemble.clayer.yml
+      for-context:
+      - +HE
+      - +HP
+
+    - layer: ../device/e1c/alif-e1c.clayer.yml
+      for-context:
+      - +E1C
 
   add-path:
     - .
-
-  components:
-    - component: AlifSemiconductor::Device:Startup&C Startup
-    - component: ARM::CMSIS:CORE
 
   output:
     base-name: $Project$

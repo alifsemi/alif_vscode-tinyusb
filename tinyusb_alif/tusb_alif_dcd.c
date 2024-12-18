@@ -80,6 +80,9 @@ void dcd_init(uint8_t rhport)
     enable_cgu_clk20m();
     // enable usb peripheral clock
     enable_usb_periph_clk();
+#ifdef M55_HE_E1C
+    enable_sdc_periph_clk();
+#endif
     // power up usb phy
     enable_usb_phy_power();
     // disable usb phy isolation
